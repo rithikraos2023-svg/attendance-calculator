@@ -1,1 +1,21 @@
+package com.attendance;
 
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AttendanceCalculatorTest {
+
+    @Test
+    public void testCalculatePercentage() {
+        AttendanceCalculator calc = new AttendanceCalculator();
+        assertEquals(80.0, calc.calculatePercentage(50, 40), 0.01);
+        assertEquals(0.0, calc.calculatePercentage(0, 0), 0.01);
+    }
+
+    @Test
+    public void testIsEligibleForExam() {
+        AttendanceCalculator calc = new AttendanceCalculator();
+        assertTrue(calc.isEligibleForExam(50, 40)); // 80% - Eligible
+        assertFalse(calc.isEligibleForExam(50, 30)); // 60% - Not Eligible
+    }
+}
