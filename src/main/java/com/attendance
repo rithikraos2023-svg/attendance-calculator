@@ -1,1 +1,18 @@
 
+package com.attendance;
+
+public class AttendanceCalculator {
+
+    // Calculates the attendance percentage
+    public double calculatePercentage(int totalClasses, int attendedClasses) {
+        if (totalClasses == 0) {
+            return 0.0;
+        }
+        return ((double) attendedClasses / totalClasses) * 100;
+    }
+
+    // Checks if the student is eligible to take the exam (>= 75%)
+    public boolean isEligibleForExam(int totalClasses, int attendedClasses) {
+        return calculatePercentage(totalClasses, attendedClasses) >= 75.0;
+    }
+}
